@@ -380,85 +380,39 @@ function displayResults(seasonKey) {
     // Mostrar las características
     document.getElementById('season-characteristics').textContent = season.characteristics;
     
-    // Mostrar la paleta de colores
+    // Obtener el elemento de la imagen
     const paletteImage = document.getElementById('palette-image');
-    paletteImage.className = 'palette-image';
-    paletteImage.classList.add(season.paletteClass);
     
-    // Por ahora, como placeholder, usaremos clases CSS para las paletas
-    // En una implementación final, se sustituirían por imágenes reales
-    // De momento haremos una representación simple con CSS
-    setupPalettes();
+    // Mapa para convertir las claves de estaciones a nombres de archivo
+    const seasonImageMap = {
+        'LIGHT_SUMMER': 'verano-claro.jpg',
+        'SOFT_SUMMER': 'verano-suave.jpg',
+        'COOL_SUMMER': 'verano-frio.jpg',
+        'CLEAR_WINTER': 'invierno-claro.jpg',
+        'COOL_WINTER': 'invierno-frio.jpg',
+        'DEEP_WINTER': 'invierno-oscuro.jpg',
+        'WARM_AUTUMN': 'otono-calido.jpg',
+        'DEEP_AUTUMN': 'otono-oscuro.jpg',
+        'SOFT_AUTUMN': 'otono-suave.jpg',
+        'CLEAR_SPRING': 'primavera-brillante.jpg',
+        'WARM_SPRING': 'primavera-calida.jpg',
+        'LIGHT_SPRING': 'primavera-clara.jpg'
+    };
+    
+    // Establecer la ruta de la imagen
+    const imagePath = `images/${seasonImageMap[seasonKey]}`;
+    
+    // Actualizar el elemento de imagen
+    paletteImage.src = imagePath;
+    paletteImage.alt = `Paleta de colores para ${season.name}`;
+    
+    // Asegurarnos de que el elemento sea un img en lugar de un div
+    paletteImage.removeAttribute('class');
 }
 
+
 // Configurar las paletas de colores (temporalmente con CSS)
-function setupPalettes() {
-    // Estilos para las paletas temporales
-    const style = document.createElement('style');
-    style.textContent = `
-        .deep-autumn-palette {
-            background: linear-gradient(to right,
-                #5B3A29 0%, #723F28 10%, #9B4522 20%, #B36A3F 30%, #C87A53 40%,
-                #D18A44 50%, #BF873B 60%, #A67E52 70%, #7A5230 80%, #5D4027 90%, #3B2918 100%);
-        }
-        .warm-autumn-palette {
-            background: linear-gradient(to right,
-                #9B6A3F 0%, #BB8E51 10%, #D9A760 20%, #E5B87C 30%, #EFC26E 40%,
-                #B1753A 50%, #A34E21 60%, #85461D 70%, #6D3B27 80%, #5E3020 90%, #472113 100%);
-        }
-        .soft-autumn-palette {
-            background: linear-gradient(to right,
-                #B89E83 0%, #C9AB8C 10%, #D4B59A 20%, #D9BFA8 30%, #E0CCBA 40%,
-                #BD9D7E 50%, #A68268 60%, #8C6D55 70%, #766055 80%, #614D41 90%, #4E3D32 100%);
-        }
-        .warm-spring-palette {
-            background: linear-gradient(to right,
-                #FFF0AA 0%, #FFE57A 10%, #FFC14A 20%, #FF9D55 30%, #FF8A5C 40%,
-                #FF7048 50%, #E6C646 60%, #C8D900 70%, #8FB03F 80%, #57A639 90%, #2E8B33 100%);
-        }
-        .clear-spring-palette {
-            background: linear-gradient(to right,
-                #FFEB6B 0%, #FFD54F 10%, #FF8E3C 20%, #FF7043 30%, #FF5D62 40%,
-                #FF5A98 50%, #DA3287 60%, #8ED8F8 70%, #1E88E5 80%, #6BD46F 90%, #4CAF50 100%);
-        }
-        .light-spring-palette {
-            background: linear-gradient(to right,
-                #FFF5BA 0%, #FFE79E 10%, #FFD485 20%, #FFC286 30%, #FFB59B 40%,
-                #FFB5B8 50%, #FFB6C1 60%, #D4E7C5 70%, #A5DBB2 80%, #7ACCBE 90%, #89C3EB 100%);
-        }
-        .clear-winter-palette {
-            background: linear-gradient(to right,
-                #FFFFFF 0%, #E2E2E2 10%, #C8C8C8 20%, #5E5E5E 30%, #2C2C2C 40%,
-                #000000 50%, #0A3A7D 60%, #C90016 70%, #E91E63 80%, #4A26AB 90%, #03A9F4 100%);
-        }
-        .cool-winter-palette {
-            background: linear-gradient(to right,
-                #FCFEFF 0%, #DBE9F4 10%, #B8D5ED 20%, #60A1D9 30%, #2570B5 40%,
-                #0E4485 50%, #9E0D38 60%, #DA1C5C 70%, #991B4A 80%, #6B0E38 90%, #4A0D3A 100%);
-        }
-        .deep-winter-palette {
-            background: linear-gradient(to right,
-                #07004D 0%, #2E1A4A 10%, #4C1C48 20%, #641537 30%, #77102D 40%,
-                #A10A26 50%, #1F2A5A 60%, #103667 70%, #0A4D68 80%, #223F4A 90%, #1D2A35 100%);
-        }
-        .cool-summer-palette {
-            background: linear-gradient(to right,
-                #E6F5F9 0%, #BDD9E5 10%, #A1C6D7 20%, #5E92AA 30%, #4E7A8A 40%,
-                #30596D 50%, #CDB3BC 60%, #AA7C8D 70%, #965D76 80%, #81495E 90%, #6B3D4E 100%);
-        }
-        .light-summer-palette {
-            background: linear-gradient(to right,
-                #F0F6FB 0%, #D9E8F5 10%, #C6DBEF 20%, #BFD1E5 30%, #A8C4E2 40%,
-                #95ADC9 50%, #BFC9DD 60%, #C6B2C2 70%, #D7BFC9 80%, #EED0D7 90%, #FADBE0 100%);
-        }
-        .soft-summer-palette {
-            background: linear-gradient(to right,
-                #D6DCE5 0%, #C6CED9 10%, #A8B2BB 20%, #8A979E 30%, #717A85 40%,
-                #59636E 50%, #A29997 60%, #A38E8A 70%, #947D78 80%, #7E6B65 90%, #6A5A53 100%);
-        }
-    `;
-    document.head.appendChild(style);
-}
+
 
 // Reiniciar la calculadora
 function resetCalculator() {
