@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de Colorimetría</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Fuentes cargadas desde carpeta local -->
+</head>
+<body>
+  <div class="language-selector">
+    <button id="es-btn" class="active">ES</button>
+    <button id="en-btn">EN</button>
+  </div>
+
+  <main class="container">
+    <!-- Página de inicio con banner -->
+    <section id="inicio" class="step active">
+      <div class="banner-container">
+        <img src="images/banner-revolucion-espejo.jpg" alt="Banner Revolución" class="banner" />
+      </div>
+      <h1 class="brittany-font">Revolución en tu Espejo</h1>
+      <p class="subtitle" data-es="Descubre tu paleta de colores ideal" data-en="Discover your ideal color palette"></p>
+      <p class="description" data-es="Esta herramienta te ayudará a descubrir tu estación colorimétrica y mejorar tu imagen personal." data-en="This tool will help you find your color season and improve your personal image."></p>
+      <button id="start-btn" class="primary-btn" data-es="Iniciar tu análisis de color" data-en="Start your color analysis"></button>
+    </section>
+
+    <!-- Resultados -->
+    <section id="resultado" class="step hidden">
+      <h2 id="resultado-titulo" class="brittany-font"></h2>
+      <div id="resultado-img-container">
+        <img id="resultado-img" src="" alt="Paleta de estación" />
+      </div>
+      <p id="resultado-descripcion"></p>
+      <button id="reiniciar-btn" class="primary-btn" data-es="Reiniciar" data-en="Restart"></button>
+    </section>
+  </main>
+
+  <!-- Script final -->
+  <script src="script.js"></script>
+</body>
+</html>
