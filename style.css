@@ -35,10 +35,15 @@ body {
 
 /* Header Styles */
 header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border-color);
+    .banner-header {
+    background-image: url('images/banner-revolucion-espejo.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 .logo-container {
@@ -51,7 +56,7 @@ header {
 .flower-logo {
     width: 80px;
     height: 80px;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 .flower {
