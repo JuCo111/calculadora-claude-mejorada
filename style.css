@@ -1,15 +1,15 @@
 /* Base Styles */
 :root {
-    --primary-bg: #d0b1a3;
-    --secondary-bg: #fcf6f0;
-    --accent-color: #dac8b9;
-    --accent-hover: #dac8b9;
-    --text-color: #fcf6f0;
+    --primary-bg: #f9f3f0;
+    --secondary-bg: #ffffff;
+    --accent-color: #f8d0d0;
+    --accent-hover: #f4c2c2;
+    --text-color: #5a4a42;
     --text-light: #8a7a72;
-    --border-color: #dac8b9;
+    --border-color: #e9d5d5;
     --shadow-color: rgba(0, 0, 0, 0.05);
-    --title-font: 'fonts/BrittanySignature.ttf;
-    --body-font: 'fonts/Raleway-Regular.ttf';
+    --title-font: 'BrittanySignature', cursive;
+    --body-font: 'Raleway', sans-serif;
 }
 
 * {
