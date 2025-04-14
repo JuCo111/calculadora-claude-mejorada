@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Colorimetría - Revolución en tu Espejo</title>
+    
+    <!-- Fuentes de Google Fonts - Playfair Display para títulos y Montserrat para texto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Encabezado con logo y título -->
+        <header>
+            <div class="logo-container">
+                <div class="flower-logo">
+                    <!-- SVG de la flor aquí - Representación simple hasta tener la imagen real -->
+                    <svg viewBox="0 0 100 100" class="flower">
+                        <path d="M50,15 C55,5 65,10 50,25 C35,10 45,5 50,15" fill="#f8d0d0"/>
+                        <path d="M65,20 C75,15 75,25 55,35 C60,15 70,15 65,20" fill="#f4c2c2"/>
+                        <path d="M75,40 C85,40 80,50 60,45 C70,30 80,35 75,40" fill="#f8d0d0"/>
+                        <path d="M70,60 C75,70 65,75 55,55 C70,45 75,55 70,60" fill="#f4c2c2"/>
+                        <path d="M50,70 C45,80 35,75 50,60 C65,75 55,80 50,70" fill="#f8d0d0"/>
+                        <path d="M30,65 C20,70 20,60 40,50 C35,70 25,70 30,65" fill="#f4c2c2"/>
+                        <path d="M20,45 C10,45 15,35 35,40 C25,55 15,50 20,45" fill="#f8d0d0"/>
+                        <path d="M25,25 C20,15 30,10 45,30 C30,40 25,30 25,25" fill="#f4c2c2"/>
+                        <circle cx="50" cy="45" r="12" fill="#f9e0b8"/>
+                    </svg>
+                </div>
+                <h1 class="main-title">Calculadora de Colorimetría</h1>
+            </div>
+            <p class="subtitle">Descubre tu estación colorimétrica personal</p>
+        </header>
+
+        <!-- Sección de introducción -->
+        <section id="intro" class="section active">
+            <h2>Bienvenido a tu análisis de color personal</h2>
+            <p>Esta herramienta te ayudará a descubrir qué colores son los más favorecedores para ti, basados en tus características físicas naturales.</p>
+            <p>Te guiaremos a través de un proceso sencillo para evaluar tu piel, cabello y ojos, y así determinar tu estación colorimétrica.</p>
+            <button id="start-btn" class="btn-primary">Comenzar análisis</button>
+        </section>
+
+        <!-- Paso 1: Análisis de PIEL -->
+        <section id="skin-section" class="section">
+            <h2>Paso 1: Análisis de tu piel</h2>
+            
+            <div class="analysis-container">
+                <!-- Temperatura -->
+                <div class="characteristic-box">
+                    <h3>Temperatura de tu piel</h3>
+                    <p>¿Tu piel tiene un subtono cálido (amarillento/dorado) o frío (rosado/azulado)?</p>
+                    
+                    <div class="image-examples">
+                        <div class="example">
+                            <div class="example-img warm-skin-example"></div>
+                            <p>Cálido: Subtono amarillo/dorado</p>
+                        </div>
+                        <div class="example">
+                            <div class="example-img cool-skin-example"></div>
+                            <p>Frío: Subtono rosado/azulado</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rating-selector">
+                        <h4>Elige una opción:</h4>
+                        <div class="option-group">
+                            <div class="option" data-category="skin" data-feature="temperature" data-type="warm" data-value="3">
+                                <span>Muy cálido</span>
+                                <div class="scale">3</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="temperature" data-type="warm" data-value="2">
+                                <span>Moderadamente cálido</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="temperature" data-type="warm" data-value="1">
+                                <span>Ligeramente cálido</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="temperature" data-type="cool" data-value="1">
+                                <span>Ligeramente frío</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="temperature" data-type="cool" data-value="2">
+                                <span>Moderadamente frío</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="temperature" data-type="cool" data-value="3">
+                                <span>Muy frío</span>
+                                <div class="scale">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Valor -->
+                <div class="characteristic-box">
+                    <h3>Valor de tu piel</h3>
+                    <p>¿Tu piel es clara u oscura en su tonalidad general?</p>
+                    
+                    <div class="image-examples">
+                        <div class="example">
+                            <div class="example-img light-skin-example"></div>
+                            <p>Clara: Tonalidades claras</p>
+                        </div>
+                        <div class="example">
+                            <div class="example-img dark-skin-example"></div>
+                            <p>Oscura: Tonalidades profundas</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rating-selector">
+                        <h4>Elige una opción:</h4>
+                        <div class="option-group">
+                            <div class="option" data-category="skin" data-feature="value" data-type="light" data-value="3">
+                                <span>Muy clara</span>
+                                <div class="scale">3</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="value" data-type="light" data-value="2">
+                                <span>Moderadamente clara</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="value" data-type="light" data-value="1">
+                                <span>Ligeramente clara</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="value" data-type="dark" data-value="1">
+                                <span>Ligeramente oscura</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="value" data-type="dark" data-value="2">
+                                <span>Moderadamente oscura</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="value" data-type="dark" data-value="3">
+                                <span>Muy oscura</span>
+                                <div class="scale">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Croma -->
+                <div class="characteristic-box">
+                    <h3>Croma de tu piel</h3>
+                    <p>¿Tu piel tiene un aspecto brillante y definido, o suave y apagado?</p>
+                    
+                    <div class="image-examples">
+                        <div class="example">
+                            <div class="example-img bright-skin-example"></div>
+                            <p>Brillante: Apariencia vívida</p>
+                        </div>
+                        <div class="example">
+                            <div class="example-img soft-skin-example"></div>
+                            <p>Suave: Apariencia atenuada</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rating-selector">
+                        <h4>Elige una opción:</h4>
+                        <div class="option-group">
+                            <div class="option" data-category="skin" data-feature="chroma" data-type="bright" data-value="3">
+                                <span>Muy brillante</span>
+                                <div class="scale">3</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="chroma" data-type="bright" data-value="2">
+                                <span>Moderadamente brillante</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="chroma" data-type="bright" data-value="1">
+                                <span>Ligeramente brillante</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="chroma" data-type="soft" data-value="1">
+                                <span>Ligeramente suave</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="chroma" data-type="soft" data-value="2">
+                                <span>Moderadamente suave</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="skin" data-feature="chroma" data-type="soft" data-value="3">
+                                <span>Muy suave</span>
+                                <div class="scale">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="navigation-buttons">
+                <button class="btn-secondary back-btn" data-goto="intro">Atrás</button>
+                <button class="btn-primary next-btn" data-goto="hair-section">Siguiente</button>
+            </div>
+        </section>
+
+        <!-- Paso 2: Análisis de CABELLO -->
+        <section id="hair-section" class="section">
+            <h2>Paso 2: Análisis de tu cabello</h2>
+            
+            <div class="hair-questions">
+                <p class="important-note">Por favor piensa antes de calificar:</p>
+                <ol>
+                    <li>¿De qué color era tu pelo natural?</li>
+                    <li>¿Te vas a dejar el color que tienes ahora?</li>
+                    <li>¿Te favorece el color que llevas ahora en el pelo?</li>
+                </ol>
+            </div>
+            
+            <div class="analysis-container">
+                <!-- Temperatura -->
+                <div class="characteristic-box">
+                    <h3>Temperatura de tu cabello</h3>
+                    <p>¿Tu cabello tiene tonos cálidos (rojizos/dorados) o fríos (cenizos/azulados)?</p>
+                    
+                    <div class="image-examples">
+                        <div class="example">
+                            <div class="example-img warm-hair-example"></div>
+                            <p>Cálido: Tonos rojizos, cobrizos, dorados</p>
+                        </div>
+                        <div class="example">
+                            <div class="example-img cool-hair-example"></div>
+                            <p>Frío: Tonos cenizos, plateados, azulados</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rating-selector">
+                        <h4>Elige una opción:</h4>
+                        <div class="option-group">
+                            <div class="option" data-category="hair" data-feature="temperature" data-type="warm" data-value="3">
+                                <span>Muy cálido</span>
+                                <div class="scale">3</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="temperature" data-type="warm" data-value="2">
+                                <span>Moderadamente cálido</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="temperature" data-type="warm" data-value="1">
+                                <span>Ligeramente cálido</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="temperature" data-type="cool" data-value="1">
+                                <span>Ligeramente frío</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="temperature" data-type="cool" data-value="2">
+                                <span>Moderadamente frío</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="temperature" data-type="cool" data-value="3">
+                                <span>Muy frío</span>
+                                <div class="scale">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Valor -->
+                <div class="characteristic-box">
+                    <h3>Valor de tu cabello</h3>
+                    <p>¿Tu cabello es claro u oscuro en su tonalidad general?</p>
+                    
+                    <div class="image-examples">
+                        <div class="example">
+                            <div class="example-img light-hair-example"></div>
+                            <p>Claro: Rubio, castaño claro</p>
+                        </div>
+                        <div class="example">
+                            <div class="example-img dark-hair-example"></div>
+                            <p>Oscuro: Castaño oscuro, negro</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rating-selector">
+                        <h4>Elige una opción:</h4>
+                        <div class="option-group">
+                            <div class="option" data-category="hair" data-feature="value" data-type="light" data-value="3">
+                                <span>Muy claro</span>
+                                <div class="scale">3</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="value" data-type="light" data-value="2">
+                                <span>Moderadamente claro</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="value" data-type="light" data-value="1">
+                                <span>Ligeramente claro</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="value" data-type="dark" data-value="1">
+                                <span>Ligeramente oscuro</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="value" data-type="dark" data-value="2">
+                                <span>Moderadamente oscuro</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="value" data-type="dark" data-value="3">
+                                <span>Muy oscuro</span>
+                                <div class="scale">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Croma -->
+                <div class="characteristic-box">
+                    <h3>Croma de tu cabello</h3>
+                    <p>¿Tu cabello tiene un color intenso y vibrante, o es más suave y apagado?</p>
+                    
+                    <div class="image-examples">
+                        <div class="example">
+                            <div class="example-img bright-hair-example"></div>
+                            <p>Brillante: Color intenso y definido</p>
+                        </div>
+                        <div class="example">
+                            <div class="example-img soft-hair-example"></div>
+                            <p>Suave: Color más apagado y neutro</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rating-selector">
+                        <h4>Elige una opción:</h4>
+                        <div class="option-group">
+                            <div class="option" data-category="hair" data-feature="chroma" data-type="bright" data-value="3">
+                                <span>Muy brillante</span>
+                                <div class="scale">3</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="chroma" data-type="bright" data-value="2">
+                                <span>Moderadamente brillante</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="chroma" data-type="bright" data-value="1">
+                                <span>Ligeramente brillante</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="chroma" data-type="soft" data-value="1">
+                                <span>Ligeramente suave</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="chroma" data-type="soft" data-value="2">
+                                <span>Moderadamente suave</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="hair" data-feature="chroma" data-type="soft" data-value="3">
+                                <span>Muy suave</span>
+                                <div class="scale">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="navigation-buttons">
+                <button class="btn-secondary back-btn" data-goto="skin-section">Atrás</button>
+                <button class="btn-primary next-btn" data-goto="eyes-section">Siguiente</button>
+            </div>
+        </section>
+
+        <!-- Paso 3: Análisis de OJOS -->
+        <section id="eyes-section" class="section">
+            <h2>Paso 3: Análisis de tus ojos</h2>
+            
+            <div class="analysis-container">
+                <!-- Temperatura -->
+                <div class="characteristic-box">
+                    <h3>Temperatura de tus ojos</h3>
+                    <p>¿Tus ojos tienen tonos cálidos (ámbar, avellana) o fríos (azul, grises)?</p>
+                    
+                    <div class="image-examples">
+                        <div class="example">
+                            <div class="example-img warm-eyes-example"></div>
+                            <p>Cálido: Tonos ámbar, avellana, marrón dorado</p>
+                        </div>
+                        <div class="example">
+                            <div class="example-img cool-eyes-example"></div>
+                            <p>Frío: Tonos azul, verde azulado, gris</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rating-selector">
+                        <h4>Elige una opción:</h4>
+                        <div class="option-group">
+                            <div class="option" data-category="eyes" data-feature="temperature" data-type="warm" data-value="3">
+                                <span>Muy cálido</span>
+                                <div class="scale">3</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="temperature" data-type="warm" data-value="2">
+                                <span>Moderadamente cálido</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="temperature" data-type="warm" data-value="1">
+                                <span>Ligeramente cálido</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="temperature" data-type="cool" data-value="1">
+                                <span>Ligeramente frío</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="temperature" data-type="cool" data-value="2">
+                                <span>Moderadamente frío</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="temperature" data-type="cool" data-value="3">
+                                <span>Muy frío</span>
+                                <div class="scale">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Valor -->
+                <div class="characteristic-box">
+                    <h3>Valor de tus ojos</h3>
+                    <p>¿Tus ojos son claros u oscuros en su tonalidad general?</p>
+                    
+                    <div class="image-examples">
+                        <div class="example">
+                            <div class="example-img light-eyes-example"></div>
+                            <p>Claro: Azul claro, verde claro, ámbar</p>
+                        </div>
+                        <div class="example">
+                            <div class="example-img dark-eyes-example"></div>
+                            <p>Oscuro: Marrón oscuro, verde oscuro, etc.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rating-selector">
+                        <h4>Elige una opción:</h4>
+                        <div class="option-group">
+                            <div class="option" data-category="eyes" data-feature="value" data-type="light" data-value="3">
+                                <span>Muy claro</span>
+                                <div class="scale">3</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="value" data-type="light" data-value="2">
+                                <span>Moderadamente claro</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="value" data-type="light" data-value="1">
+                                <span>Ligeramente claro</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="value" data-type="dark" data-value="1">
+                                <span>Ligeramente oscuro</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="value" data-type="dark" data-value="2">
+                                <span>Moderadamente oscuro</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="value" data-type="dark" data-value="3">
+                                <span>Muy oscuro</span>
+                                <div class="scale">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Croma -->
+                <div class="characteristic-box">
+                    <h3>Croma de tus ojos</h3>
+                    <p>¿Tus ojos tienen un color vibrante y definido, o más suave y apagado?</p>
+                    
+                    <div class="image-examples">
+                        <div class="example">
+                            <div class="example-img bright-eyes-example"></div>
+                            <p>Brillante: Color intenso y definido</p>
+                        </div>
+                        <div class="example">
+                            <div class="example-img soft-eyes-example"></div>
+                            <p>Suave: Color más apagado o mezclado</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rating-selector">
+                        <h4>Elige una opción:</h4>
+                        <div class="option-group">
+                            <div class="option" data-category="eyes" data-feature="chroma" data-type="bright" data-value="3">
+                                <span>Muy brillante</span>
+                                <div class="scale">3</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="chroma" data-type="bright" data-value="2">
+                                <span>Moderadamente brillante</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="chroma" data-type="bright" data-value="1">
+                                <span>Ligeramente brillante</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="chroma" data-type="soft" data-value="1">
+                                <span>Ligeramente suave</span>
+                                <div class="scale">1</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="chroma" data-type="soft" data-value="2">
+                                <span>Moderadamente suave</span>
+                                <div class="scale">2</div>
+                            </div>
+                            <div class="option" data-category="eyes" data-feature="chroma" data-type="soft" data-value="3">
+                                <span>Muy suave</span>
+                                <div class="scale">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="navigation-buttons">
+                <button class="btn-secondary back-btn" data-goto="hair-section">Atrás</button>
+                <button class="btn-primary calculate-btn">Ver mi resultado</button>
+            </div>
+        </section>
+
+        <!-- Resultados -->
+        <section id="results-section" class="section">
+            <h2>Tu Resultado</h2>
+            
+            <div class="result-container">
+                <div class="season-result">
+                    <h3>Tu estación es: <span id="season-name">Calculando...</span></h3>
+                    <div class="season-description">
+                        <p id="season-description">Analizando tus características...</p>
+                    </div>
+                </div>
+                
+                <div class="color-palette">
+                    <h3>Tu paleta de colores</h3>
+                    <div id="palette-image" class="palette-image">
+                        <!-- La imagen de la paleta se colocará aquí -->
+                    </div>
+                </div>
+                
+                <div class="season-details">
+                    <h3>Características principales</h3>
+                    <div id="season-characteristics">
+                        <!-- Las características se colocarán aquí -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="navigation-buttons">
+                <button class="btn-secondary back-btn" data-goto="eyes-section">Atrás</button>
+                <button class="btn-primary restart-btn">Reiniciar</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
