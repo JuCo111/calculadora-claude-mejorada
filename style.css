@@ -8,8 +8,9 @@
     --text-light: #8a7a72;
     --border-color: #e9d5d5;
     --shadow-color: rgba(0, 0, 0, 0.05);
-    --title-font: 'BrittanySignature', cursive;
-    --body-font: 'Raleway', sans-serif;
+    --title-font: 'BrittanySignature';
+    --subtitle-font: 'Raleway';
+    --body-font: 'Raleway';
 }
 
 * {
